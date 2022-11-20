@@ -24,7 +24,7 @@ export default function Video() {
                   clipRule="evenodd"
                 />
               </svg>
-              <span className="sr-only">Play Video {process.env.Api_Key} </span>
+              <span className="sr-only">Play Video </span>
             </button>
           )}
           {playVideo && (
