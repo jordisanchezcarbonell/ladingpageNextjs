@@ -24,7 +24,7 @@ import Faq from "../components/faq";
 // const PopupWidget = dynamic(() => import("../components/popupWidget"));
 
 export default function Home() {
-  console.log(process.env.Test);
+  console.log("TEST,", process.env.Test);
   return (
     <>
       <Head>
