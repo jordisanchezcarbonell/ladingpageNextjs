@@ -11,6 +11,7 @@ export default function SectionTitle(props: any) {
       {props.pretitle && (
         <div className="text-sm font-bold tracking-wider text-indigo-600 uppercase">
           {props.pretitle}
+          {process.env.Api_Key}
         </div>
       )}
 
