@@ -4,17 +4,8 @@ import { Analytics } from "@vercel/analytics/react";
 import Script from "next/script";
 import "../styles/globals.css";
 import type { AppProps } from "next/app";
-const { Logtail } = require("@logtail/node");
-const logtail = new Logtail("FyvbCfevrmsNehWqLUMdmUpU");
-export default function App({ Component, pageProps }: AppProps) {
-  logtail.error("Something bad happend.");
-  logtail.info("Log message with structured data.", {
-    item: "Orange Soda",
-    price: 100.0,
-  });
 
-  // Ensure that all logs are sent to Logtail
-  logtail.flush();
+export default function App({ Component, pageProps }: AppProps) {
   return (
     <ThemeProvider attribute="class">
       <Script

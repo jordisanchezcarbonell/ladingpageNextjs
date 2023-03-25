@@ -1,5 +1,9 @@
 /** @type {import('next').NextConfig} */
-module.exports = {
+
+const { withLogtail } = require("@logtail/next");
+
+module.exports = withLogtail({
+  // Your existing config
   i18n: {
     locales: ["en"],
     defaultLocale: "en",
@@ -10,4 +14,4 @@ module.exports = {
     }
     return config;
   },
-};
+});

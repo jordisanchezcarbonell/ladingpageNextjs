@@ -1,22 +1,25 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from "next";
-const { Node: Logtail } = require("@logtail/js");
-const logtail = new Logtail("FyvbCfevrmsNehWqLUMdmUpU");
+import { Node as Logtail } from "@logtail/js";
+const logger = new Logtail("6Ys5vKFzG9xb3jXPCtwgRhD2");
 
 type Data = {
   name: string;
 };
 
-export default function handler(
+export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse<Data>
 ) {
-  logtail.info(
-    "Log message with structured data. dese la api231313132131231231231 ",
-    {
-      item: "Orange Soda",
-      price: 100.0,
-    }
+  const user = {
+    id: 123,
+    name: "John Doe",
+  };
+
+  await logger.info(
+    "Handling a request to /api/hello",
+    { user } // you can log structured data
   );
-  res.status(200).json({ name: "John Doe" });
+
+  res.status(200).json({ name: user.name });
 }

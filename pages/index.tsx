@@ -10,7 +10,9 @@ import Footer from "../components/footer";
 import Testimonials from "../components/testimonials";
 import Cta from "../components/cta";
 import Faq from "../components/faq";
-
+import { useEffect } from "react";
+import { Browser as Logtail } from "@logtail/js";
+const logger = new Logtail("6Ys5vKFzG9xb3jXPCtwgRhD2");
 //import dynamic from "next/dynamic";
 
 // const Video = dynamic(() => import("../components/video"));
@@ -24,6 +26,23 @@ import Faq from "../components/faq";
 // const PopupWidget = dynamic(() => import("../components/popupWidget"));
 
 export default function Home() {
+  if (typeof navigator !== "undefined" && typeof window !== "undefined") {
+    logger.info("Home component rendered", {
+      // you can log structured data
+      browser: navigator.userAgent,
+      resolution: {
+        width: window.innerWidth,
+        height: window.innerHeight,
+      },
+    });
+  }
+
+  useEffect(() => {
+    fetch("/api/hello")
+      .then((res) => res.json())
+      .then((data) => logger.info("Received a response from /api/hello", data));
+  });
+
   return (
     <>
       <Head>

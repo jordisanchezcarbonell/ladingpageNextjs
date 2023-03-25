@@ -12,6 +12,7 @@
     "@headlessui/react": "^1.7.4",
     "@heroicons/react": "^1.0.6",
     "@logtail/js": "^0.3.3",
+    "@logtail/next": "^0.1.0",
     "@logtail/node": "^0.3.3",
     "@types/node": "18.11.9",
     "@types/react": "18.0.25",
